@@ -1,0 +1,8 @@
+
+public class GraphIO {
+	static public void readFile(Graph g, String filename) {
+		try {
+			Scanner scanner = new Scanner(new File(filename))
+		}
+	}
+}

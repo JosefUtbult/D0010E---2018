@@ -1,0 +1,26 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class GraphIO {
+	static public void readFile(Graph g, String filename) throws IOException {
+		
+		Scanner scanner;
+		
+		try {
+			scanner = new Scanner(new BufferedReader(new FileReader(filename)));
+		} catch(Error e){
+			throw new IOException("Could not read the file; ");
+		}
+		
+		int nrOfNodes = scanner.nextInt();
+		
+	}
+	
+	static private void checkNextInt(Scanner scanner) {
+		if(!scanner.hasNext()) {
+			throw new Error("File to short.");
+		}
+	}
+}
