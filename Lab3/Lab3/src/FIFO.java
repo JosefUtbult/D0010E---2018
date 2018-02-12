@@ -1,3 +1,8 @@
+/**
+ * @author Josef Utbult
+ */
+
+
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -13,7 +18,7 @@ public class FIFO implements Queue {
 	
 	@Override
 	public boolean equals(Object f) throws ClassCastException {
-		if(this.isEmpty()) {
+		if(this.queue.isEmpty()) {
 			return false;
 		}
 		
@@ -29,20 +34,33 @@ public class FIFO implements Queue {
 			
 
 			//System.out.format("i: %d, value of this[i]: %d, type of f[i]: %d\n", i, Integer.valueOf(this.getQueue().get(i).toString()), Integer.valueOf(((FIFO)f).getQueue().get(i).toString()));
+
+			if((this.getQueue().get(i) == null && ((FIFO)f).getQueue().get(i) == null)){
+
+			}
+			else if(this.getQueue().get(i) == null || ((FIFO)f).getQueue().get(i) == null) {
+				return false;
+			}
+			else if(!this.getQueue().get(i).equals(((FIFO)f).getQueue().get(i))){
+				return false;
+			}
 			
-			if((this.getQueue().get(i) != null ? Integer.valueOf(this.getQueue().get(i).toString()) : null) != 
+			
+			/*if((this.getQueue().get(i) != null ? Integer.valueOf(this.getQueue().get(i).toString()) : null) !=
 				(((FIFO)f).getQueue().get(i) != null ? Integer.valueOf(((FIFO)f).getQueue().get(i).toString()) : null) ) {		//Might be a pain in the ass to look at, but in essence: if the current object is'nt null, it is cast
 																																//to a string and then an integer, If it is null, it just stays as a null. Then it compares the value with
 																																//the same operation for the other object, f.
+																																//If Intager.valueOf can't parse the string to an integer, it returns null, which the if-statements can handle anyway.
 				return false;
 			}
+			*/
 			
 		}
 		
 		return true;
 	}
 	
-	public ArrayList<Object> getQueue(){
+	private ArrayList<Object> getQueue(){
 		return queue;
 	}
 	
